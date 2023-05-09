@@ -120,11 +120,18 @@ img {
 	height: 4px;
 	border-radius: 2px;
 	background-color: transparent;
+	cursor:auto;
+}
+
+.nav.link:hover::after {
+	background-color: var(--accent-link-color);
+	transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .nav.link:hover,
 .nav.link:focus {
 	color: var(--accent-link-color);
+	transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .nav.link.active {
@@ -144,6 +151,8 @@ img {
 
 .address.link:hover {
 	color: var(--accent-link-color);
+		transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
 }
 
 /* main */
@@ -198,6 +207,7 @@ img {
 
 .button.hero:hover {
 	background-color: var(--accent-link-color);
+	transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* advanteges*/
@@ -293,10 +303,12 @@ img {
 
 .icon:hover {
 	background-color: var(--accent-link-color);
+	transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .icon:focus {
 	background-color: var(--accent-link-color);
+	transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .svg {
@@ -350,11 +362,13 @@ img {
 .cust-link:hover {
 	border-color: #404bbf;
 	color: #404bbf;
+	transition: border-color, color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .cust-link:focus {
 	border-color: #404bbf;
 	color: #404bbf;
+	transition: border-color, color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .customer-item {
@@ -423,6 +437,7 @@ footer.footer {
 
 .social-item:hover {
 	background-color: #31d0aa;
+	transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .social-icon {
 	display: flex;
@@ -436,10 +451,12 @@ footer.footer {
 
 .social-icon:hover {
 	background-color: #31d0aa;
+	transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .social-icon:focus {
 	background-color: #31d0aa;
+	transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .social-svg {
@@ -471,6 +488,7 @@ footer.footer {
 	background-color: var(--accent-link-color);
 	border-color: var(--accent-link-color);
 	box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 2px 1px rgba(0, 0, 0, 0.08), 0px 2px 2px rgba(0, 0, 0, 0.12);
+	transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1), background-color 250ms cubic-bezier(0.4, 0, 0.2, 1), border-color 250ms cubic-bezier(0.4, 0, 0.2, 1), box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 section.filters {
@@ -508,17 +526,21 @@ section.filters {
 
 .project:hover {
 	box-shadow: 0px 1px 6px rgba(46, 47, 66, 0.08), 0px 1px 1px rgba(46, 47, 66, 0.16), 0px 2px 1px rgba(46, 47, 66, 0.08);
+	transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .project:focus {
 	box-shadow: 0px 1px 6px rgba(46, 47, 66, 0.08), 0px 1px 1px rgba(46, 47, 66, 0.16), 0px 2px 1px rgba(46, 47, 66, 0.08);
+	transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .decoration-popup {
 	position: relative;
+	overflow: hidden;
 }
 
 .popup {
+	transform: translatey(100%);
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -527,7 +549,12 @@ section.filters {
 	width: 100%;
 	height: 100%;
 	color: #F4F4FD;
-	
+	transition: transform 800ms ease;
+}
+
+.port-var:hover .popup {
+	transform: translateY(0);
+	transition: transform 800ms ease;
 }
 
 .list li:nth-child(3n) {
@@ -548,6 +575,7 @@ section.filters {
 	border-bottom: 1px solid var(--secondary-white-color);
 	border-left: 1px solid var(--secondary-white-color);
 	border-right: 1px solid var(--secondary-white-color);
+	transition: border-bottom, border-left, border-right 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .port-name {
@@ -584,19 +612,28 @@ section.filters {
 /* modal window */
 
 .backdrop {
-	visibility: hidden;
+	opacity: 1;
+	pointer-events: all;
 	position: absolute;
 	top: 0;
 	left: 0;
 	width: 100%;
 	height: 100%;
 	background: rgba(46, 47, 66, 0.4);
+	transition: opacity 250ms ease-in, transform 250ms ease-in;
+}
+
+.backdrop.is-hidden {
+	opacity: 0;
+	pointer-events: none;
+	transition: opacity 250ms ease-in, transform 250ms ease-in;
 }
 
 .modal {
 	position: absolute;
-	top: calc(50% - 292px);
-	left: calc(50% - 204px);
+	top: 50%;
+	left: 50%;
+	transform: translatex(-50%) translatey(-50%);
 	width: 408px;
 	height: 584px;
 	background: #FCFCFC;
@@ -617,6 +654,7 @@ section.filters {
 	background-color: #e7e9fc;
 	border: 1px solid rgba(0, 0, 0, 0.1);
 	border-radius: 50%;
+	cursor: pointer;
 	fill: #2e2f42;
 }
 
