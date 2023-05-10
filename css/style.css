@@ -556,7 +556,8 @@ section.filters {
 	overflow: hidden;
 }
 
-.popup {
+.popup-content {
+	display: inline-block;
 	transform: translatey(100%);
 	position: absolute;
 	top: 0;
