@@ -643,7 +643,6 @@ section.filters {
 	visibility: hidden;
 	opacity: 0;
 	pointer-events: none;
-	transition: opacity 250ms ease-in, transform 250ms ease-in;
 }
 
 .modal {
