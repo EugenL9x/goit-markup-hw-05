@@ -567,7 +567,6 @@ section.filters {
 
 .port-var:hover .popup-content {
 	transform: translateY(0);
-	transition: transform 800ms ease;
 }
 
 .list li:nth-child(3n) {
