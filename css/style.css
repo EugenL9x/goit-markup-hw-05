@@ -569,6 +569,10 @@ section.filters {
 	transform: translateY(0);
 }
 
+.project:focus .popup-content {
+	transform: translateY(0);
+}
+
 .list li:nth-child(3n) {
 	margin-right: 0;
 }
