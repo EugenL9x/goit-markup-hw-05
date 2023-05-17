@@ -423,6 +423,7 @@ footer.footer {
 
 .social-media {
 	/* width: calc(100%-120px / 3 ); */
+	margin-right: 80px;
 }
 
 .social-head {
@@ -471,6 +472,61 @@ footer.footer {
 .social-svg {
 	fill: var(--secondary-white-color);
 }
+
+.subscribe {
+	width: 100%;
+}
+
+.subscribe-label {
+	display: inline-block;
+	margin-bottom: 16px;
+	font-weight: 500;
+	color: var(--primery-white-color);
+}
+
+.subscribe-inp-btn {
+	display: flex;
+	gap: 24px;
+}
+
+.subscribe-input {
+	width: 100%;
+	height: 40px;
+	color: var(--primery-white-color);
+	background: transparent;
+	border: 1px solid #FFFFFF;
+	filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.15));
+	border-radius: 4px;
+	padding-left: 16px;
+	transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.subscribe-input::placeholder {
+	color: var(--primery-white-color);
+}
+
+.subscribe-input:not(:placeholder-shown):required:valid {
+	border: 1px solid green;
+}
+
+.subscribe-input:not(:placeholder-shown):required:invalid {
+	border: 1px solid red;
+}
+
+.subscribe-btn{
+	padding: 8px 24px;
+	display: flex;
+	gap: 16px;
+	align-items: center;
+	color: var(--primery-white-color)
+}
+
+.telegram-ico {
+	fill: currentColor;
+}
+
+
+
 
 /* portfolio */
 /* main */
@@ -705,6 +761,7 @@ section.filters {
 .form-row {
 	position: relative;
 	color: var(--header-text-color);
+	transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .form-row:focus-within {
@@ -717,10 +774,19 @@ section.filters {
 	width: 100%;
 	border: 1px solid rgba(46, 47, 66, 0.4);
 	border-radius: 4px;
+	transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .input-area:focus-within, .comment-area:focus-within {
   border: 1px solid #4D5AE5;
+}
+ 
+.input-area:not(:placeholder-shown):required:invalid {
+	border: 1px solid #dd3838;
+} 
+
+.input-area:not(:placeholder-shown):required:valid {
+	border: 1px solid #24c61b;
 }
 
 .form-icon {
@@ -731,10 +797,7 @@ section.filters {
 	fill: currentColor;
 }
 
-.form-label, .comment-area, .priv_pol_agree {
-	font-size: 12px;
-	line-height: 1.17;
-	letter-spacing: 0.04em;
+.priv_pol_agree {
 	color: var(--hide-text-color);
 }
 
@@ -747,26 +810,23 @@ section.filters {
 	padding-top: 8px;
 	padding-left: 16px;
 	margin-bottom: 16px;
+	border-radius: 4px;
 	resize: none;
 	border: 1px solid rgba(46, 47, 66, 0.4);
-	border-radius: 4px;
+	transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
-
-.comment-area::placeholder {
+/* я пробував ставити псевдоклас :placeholder-shown та тоді при фокусі на коментарій колір плейсхолдера стає темнішим, тобто трохи міняється, тому я зробив так щоб він мав постійний стиль кольору */
+.comment-area::placeholder, .input-area::placeholder, .form-label, .priv_pol_agree {
 	color: rgba(46, 47, 66, 0.4);
-}
-
-/* .comment-area:placeholder-shown {
-	color: rgba(46, 47, 66, 0.4);
-} */
-
-.comment-area:focus {
-	color: var(--header-text-color);
+	font-size: 12px;
+	line-height: 1.17;
+	letter-spacing: 0.04em;
 }
 
 .priv_pol_agree {
 	display: inline-block;
 	margin-bottom: 24px;
+	transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .checkbox {
@@ -775,14 +835,15 @@ section.filters {
 	margin-right: 8px;
 }
 
-.checkbox:target {
+.checkbox:checked {
 	cursor: pointer;
 	color: var(--accent-link-color);
 	border: 1px solid rgba(46, 47, 66, 0.4);
 	border-radius: 4px;
+	
 }
 
-.checkbox:target + .priv_pol_agree {
+.checkbox:checked + .priv_pol_agree {
 	color: var(--body-text-color);
 }
 
